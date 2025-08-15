@@ -1,103 +1,201 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import './globals.css';
+import React, { useEffect, useRef, useState } from 'react';
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
+import ProductCard from '@/components/ProductCard';
+import ReviewSlider from '@/components/ReviewSlider';
+import FeedbackForm from '@/components/FeedbackForm';
+import Footer from '@/components/Footer';
+import ScrollBanner from '@/components/ScrollBanner';
+import AboutSection from '@/components/AboutSection';
+
+const reviews = [
+  {
+    name: 'Sarah Khan',
+    stars: 5,
+    feedback:
+      'Absolutely love this scent! It stays with me all day and I always get compliments. Will definitely repurchase!',
+  },
+  {
+    name: 'Ali Raza',
+    stars: 4.5,
+    feedback:
+      'Very fresh and luxurious. The bottle design is classy and the fragrance is long-lasting. Great value!',
+  },
+  {
+    name: 'Zainab Sheikh',
+    stars: 5,
+    feedback:
+      'Toxic Scents has become my favorite brand. Elegant and strong fragrance with a soft finish. Love it!',
+  },
+];
+
+const productm = [
+  {
+    title: 'Oud-e-Hayaan',
+    description: 'Long-lasting fragrance with Oudi notes.',
+    price: 2450,
+    originalPrice: 3500,
+    image: '/Images/png/white oud.png',
+    hoverImage: '/Images/Oud-bg.png',
+  },
+
+
+  {
+    title:'Unwanted Code',
+    description: 'Long-lasting fragrance with Bright & Fruity notes.',
+    price: 2499,
+    originalPrice: 3300,
+    image: '/Images/png/azzaro.png',
+    hoverImage: '/Images/azzaor-bg.png',
+  },
+     {
+    title: 'Suroor Spirit',
+    description: 'Long-lasting fragrance with Floral notes.',
+    price: 2099,
+    originalPrice: 5000,
+    image: '/Images/png/janan.png',
+    hoverImage: '/Images/janan-bg.png',
+  },
+   
+ {
+    title: 'Velvet Eors',
+    description: 'Long-lasting fragrance with Mint notes.',
+    price: 3500,
+    originalPrice: 5000,
+    image: '/Images/png/office.png',
+    hoverImage: '/Images/OFFICE-BG.png',
+  },
+ 
+];
+const productw = [
+
+  {
+title: 'Lovely Oud',
+    description: 'Long-lasting fragrance with Oud notes.',
+    price: 2450,
+    originalPrice: 3500,
+    image: '/Images/png/lovely.png',
+    hoverImage: '/Images/lovely-bg.png',
+  },
+
+  {
+    title: 'Gucci Bloom',
+    description: 'A floral fragrance with a blend of jasmine and tuberose.',
+    price: 2499,
+    originalPrice: 3300,
+    image: '/Images/png/gucci.png',
+    hoverImage: '/Images/gucci-bg.png',
+  },
+
+
+];
+const productsU = [
+  {
+    title: 'Oud-e-Hayaan',
+    description: 'Long-lasting fragrance with Oudi notes.',
+    price: 2450,
+    originalPrice: 3500,
+    image: '/Images/png/savage.png',
+    hoverImage: '/Images/savage-bg.png',
+  },
+  {
+    title: 'Unwanted Code',
+    description: 'Long-lasting fragrance with Bright & Fruity notes.',
+    price: 2499,
+    originalPrice: 3300,
+    image: '/Images/png/eros.png',
+    hoverImage: '/Images/eros-bg.png',
+  }
+];
+
+
+export default function HomePage() {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const useDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    document.body.classList.toggle('dark', useDark);
+    document.body.classList.toggle('light', !useDark);
+    setIsDark(useDark);
+  }, []);
+
+  const toggleMode = () => {
+    const newTheme = !isDark;
+    document.body.classList.toggle('dark', newTheme);
+    document.body.classList.toggle('light', !newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    setIsDark(newTheme);
+  };
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div>
+      <div className="fixed top-4 right-4 z-50">
+       
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <ScrollBanner />
+      <div className="main_container">
+        <div className="circle"></div>
+        <div className="container">
+          <Navbar toggleMode={toggleMode} lightMode={!isDark} />
+          <HeroSection />
         </div>
+      </div>
+
+      <main>
+        <section className="section">
+          <div className="container row">
+            <div className="product_container">
+              <img
+                style={{ height: 300, width: 1350 }}
+                src="/Images/png/janan.png"
+                alt="Best Seller Perfume"
+              />
+            </div>
+            <div className="content">
+              <h2 className="Demand">Our Most Demanding Product</h2>
+              <p className="para">
+                <b>Suroor Spirit</b> is an elegant fusion of timeless sophistication and modern charm,
+                inspired by the beloved Janan Spot fragrance. Its enchanting blend of soft florals, woody warmth,
+                and subtle musk leaves a graceful and lasting impression.
+              </p>
+              <a href="#">Read More</a>
+            </div>
+          </div>
+        </section>
+
+        <h2 className="gender">For Him</h2>
+        <div className="cards-section">
+          {productm.map((productm, idx) => (
+            <ProductCard key={idx} {...productm} />
+          ))}
+        </div>
+
+        <h2 className="gender">For Her</h2>
+        <div className="cards-section">
+          {productw.map((productw, idx) => (
+            <ProductCard key={idx + 'her'} {...productw} />
+          ))}
+        </div>
+
+       <h2 className="gender">Unisex</h2>
+<div className="cards-section">
+  {productsU.map((product, idx) => (
+    <ProductCard key={idx + 'uni'} {...product} />
+  ))}
+</div>
+
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <ReviewSlider reviews={reviews} />
+      <FeedbackForm />
+      <AboutSection />
+      <Footer />
     </div>
   );
 }
