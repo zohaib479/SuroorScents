@@ -20,9 +20,7 @@ const HeroSection = () => (
     <div className="right_container m">
       <p className="para">
         <strong>
-          Indulge in a scent that tells your story. Our fragrance is more than a perfume —
-          it’s an expression of elegance, confidence, and timeless charm. With every note, it awakens your
-          senses, leaving a lasting impression wherever you go. One spray, and you’re unforgettable.
+         A fragrance that defines you — elegant, confident, unforgettable
         </strong>
       </p>
     </div>
