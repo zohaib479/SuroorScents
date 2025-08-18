@@ -1,16 +1,38 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const ProductCard = ({ title, description, price, originalPrice, image, hoverImage }) => {
   const [showHover, setShowHover] = useState(false);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // jaise hi 50% card screen pe aayega → hover image dikhao
+          if (entry.isIntersecting) {
+            setShowHover(true);
+          } else {
+            setShowHover(false);
+          }
+        });
+      },
+      { threshold: 0.5 } // 50% visible hone par trigger
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) observer.unobserve(cardRef.current);
+    };
+  }, []);
 
   return (
-    <div 
-      className="card group cursor-pointer"
-      onClick={() => setShowHover(!showHover)} // mobile tap toggle
-    >
+    <div ref={cardRef} className="card group cursor-pointer">
       {/* Image wrapper */}
       <div className="relative w-full h-80 overflow-hidden rounded-xl shadow-md">
         {/* Default Image */}
