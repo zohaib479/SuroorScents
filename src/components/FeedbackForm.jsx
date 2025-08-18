@@ -10,7 +10,7 @@ const FeedbackForm = () => {
       <h2 className="text-3xl font-bold mb-4">Customer Feedback</h2>
 
       {/* Star Rating */}
-      <div className="flex justify-center mb-4">
+      <div id="feedback" className="flex justify-center mb-4">
         {[1, 2, 3, 4, 5].map((star) => (
           <FaStar
             key={star}

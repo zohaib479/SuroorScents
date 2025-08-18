@@ -32,12 +32,12 @@ function page() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/shop">
+          <Link href="/">
             <button className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-xl shadow-md transition-all">
               Continue Shopping
             </button>
           </Link>
-          <Link href="/feedback">
+          <Link href="/#feedback">
             <button className="px-6 py-3 bg-transparent border border-yellow-500 hover:bg-yellow-500 hover:text-black text-yellow-400 font-semibold rounded-xl shadow-md transition-all">
               Give Feedback
             </button>

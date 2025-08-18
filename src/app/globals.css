@@ -11,6 +11,9 @@ body {
 .dark body {
   @apply bg-black text-white;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 @theme inline {
   --color-background: var(--background);
