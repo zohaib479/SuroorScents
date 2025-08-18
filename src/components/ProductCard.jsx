@@ -61,8 +61,8 @@ const ProductCard = ({ title, description, price, originalPrice, image, hoverIma
       <p className="text-gray-400 text-sm">{description}</p>
 
       <div className="mt-2">
-        <span className="line-through text-gray-400">PKR {originalPrice}</span>
-        <span className="ml-2 font-bold text-red-500">PKR {price}</span>
+        <span className="line-through text-gray-400">PKR {originalPrice} </span>
+        <span className="ml-2 font-bold text-red-500">PKR {price} </span>
       </div>
 
       {/* Order Button */}

@@ -22,12 +22,7 @@ const Navbar = ({ toggleMode, lightMode }) => {
 
         {/* Right side */}
         <div className="right">
-          {/* Dark/Light toggle */}
-          <button className="mode-toggle" onClick={toggleMode}>
-            <i id="mode-icon" className={`fas ${lightMode ? 'fa-sun' : 'fa-moon'}`}></i>
-          </button>
-
-          {/* Hamburger */}
+       
           <button
             className="hamburger"
             onClick={() => setIsOpen(!isOpen)}
