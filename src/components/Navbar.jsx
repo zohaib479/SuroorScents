@@ -38,7 +38,6 @@ const Navbar = ({ toggleMode, lightMode }) => {
           <li><a href="#" onClick={() => setIsOpen(false)}>HOME</a></li>
           <li><a href="#about" onClick={() => setIsOpen(false)}>ABOUT</a></li>
           <li><a href="#" onClick={() => setIsOpen(false)}>SHOP</a></li>
-          <li><a href="#" onClick={() => setIsOpen(false)}>LOGIN</a></li>
         </ul>
       </div>
 
