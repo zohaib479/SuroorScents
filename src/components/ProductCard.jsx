@@ -11,7 +11,6 @@ const ProductCard = ({ title, description, price, originalPrice, image, hoverIma
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // jaise hi 50% card screen pe aayega → hover image dikhao
           if (entry.isIntersecting) {
             setShowHover(true);
           } else {
@@ -19,7 +18,7 @@ const ProductCard = ({ title, description, price, originalPrice, image, hoverIma
           }
         });
       },
-      { threshold: 0.5 } // 50% visible hone par trigger
+      { threshold: 0.5 }
     );
 
     if (cardRef.current) {
@@ -35,14 +34,15 @@ const ProductCard = ({ title, description, price, originalPrice, image, hoverIma
     <div ref={cardRef} className="card group cursor-pointer">
       {/* Image wrapper */}
       <div className="relative w-full h-80 overflow-hidden rounded-xl shadow-md">
+        
         {/* Default Image */}
         <Image
           src={image}
           alt={title}
           fill
-          className={`object-contain transition-opacity duration-500 ease-in-out ${
-            showHover ? "opacity-0" : "opacity-100 group-hover:opacity-0"
-          }`}
+          className={`object-contain transition-all duration-900 ease-in-out
+            ${showHover ? "opacity-0 scale-125" : "opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-110"}
+          `}
         />
 
         {/* Hover Image */}
@@ -50,9 +50,9 @@ const ProductCard = ({ title, description, price, originalPrice, image, hoverIma
           src={hoverImage}
           alt={`${title} Hover`}
           fill
-          className={`object-contain absolute inset-0 transition-opacity duration-500 ease-in-out ${
-            showHover ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-          }`}
+          className={`object-contain absolute inset-0 transition-all duration-700 ease-in-out
+            ${showHover ? "opacity-100 scale-110" : "opacity-0 scale-100 group-hover:opacity-100 group-hover:scale-110"}
+          `}
         />
       </div>
 
