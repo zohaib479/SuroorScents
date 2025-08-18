@@ -1,27 +1,53 @@
 'use client';
 import React from 'react';
-import Link from "next/link";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const ProductCard = ({ title, description, price, originalPrice, image, hoverImage }) => (
-  <div className="card">
-    <div className="image-wrapper">
-      <img src={image} alt={title} className="default-img" />
-      <img src={hoverImage} alt={`${title} Hover`} className="hover-img" />
+  <div className="card group">
+    {/* Image wrapper with hover swap */}
+    <div className="relative w-full h-80 overflow-hidden rounded-xl shadow-md">
+      {/* Default Image */}
+      <Image
+        src={image}
+        alt={title}
+        fill   // fills parent div
+        className="object-contain transition-opacity duration-500 ease-in-out group-hover:opacity-0"
+        placeholder="blur"
+        blurDataURL={image} // fallback blur until load
+      />
+
+      {/* Hover Image */}
+      <Image
+        src={hoverImage}
+        alt={`${title} Hover`}
+        fill
+        className="object-contain absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"
+        placeholder="blur"
+        blurDataURL={hoverImage}
+      />
     </div>
-    <h3>{title}</h3>
-    <p>{description}</p>
-    <span style={{ textDecoration: 'line-through' }}>PKR {originalPrice}</span>
-    <span style={{ color: '#ff4d4d', fontWeight: 'bold', marginLeft: 10 }}>PKR {price}</span><br />
-     <Link
-        href={{
-          pathname: "/order",
-          query: { title, price, description, image },
-        }}
-      >
-        <button className="bg-yellow-500 text-white px-4 py-2 rounded mt-3 hover:bg-yellow-600">
-          Add to Cart
-        </button>
-      </Link>
+
+    {/* Product Details */}
+    <h3 className="mt-3 font-semibold text-lg">{title}</h3>
+    <p className="text-gray-400 text-sm">{description}</p>
+
+    <div className="mt-2">
+      <span className="line-through text-gray-400">PKR {originalPrice}</span>
+      <span className="ml-2 font-bold text-red-500">PKR {price}</span>
+    </div>
+
+    {/* Order Button */}
+    <Link
+      href={{
+        pathname: '/order',
+        query: { title, price, description, image },
+      }}
+    >
+      <button className="bg-yellow-500 text-white px-4 py-2 rounded mt-3 hover:bg-yellow-600 transition">
+        Add to Cart
+      </button>
+    </Link>
   </div>
 );
 

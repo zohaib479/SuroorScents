@@ -10,7 +10,7 @@ import FeedbackForm from '@/components/FeedbackForm';
 import Footer from '@/components/Footer';
 import ScrollBanner from '@/components/ScrollBanner';
 import AboutSection from '@/components/AboutSection';
-
+import Image from "next/image"; 
 const reviews = [
   {
     name: 'Sarah Khan',
@@ -151,11 +151,14 @@ export default function HomePage() {
         <section className="section">
           <div className="container row">
             <div className="product_container">
-              <img
-                style={{ height: 300, width: 1350 }}
-                src="/Images/png/janan.png"
-                alt="Best Seller Perfume"
-              />
+              <Image
+  src="/Images/png/janan.png"
+  alt="Best Seller Perfume"
+  width={1350}
+  height={300}
+  className="rounded-xl object-contain"
+/>
+
             </div>
             <div className="content">
               <h2 className="Demand">Our Most Demanding Product</h2>
