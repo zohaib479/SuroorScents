@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-
+import Image from "next/image"; 
 export default function OrderPage() {
   const searchParams = useSearchParams();
   const title = searchParams.get("title");
@@ -63,9 +63,11 @@ export default function OrderPage() {
         <div className="flex flex-col items-center justify-center p-8 bg-gradient-to-b from-black to-gray-900 relative">
           <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('/pattern.svg')] pointer-events-none"></div>
 
-          <img
+          <Image
             src={image}
             alt={title}
+            width={600}
+            height={400}
             className="w-full h-60 max-w-sm object-contain rounded-xl shadow-lg  p-6  "
           />
 
