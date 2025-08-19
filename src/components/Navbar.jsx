@@ -1,9 +1,7 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 
-const Navbar = ({ toggleMode, lightMode }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const Navbar = () => {
   return (
     <header>
       <nav className="navbar">
@@ -12,34 +10,13 @@ const Navbar = ({ toggleMode, lightMode }) => {
           <img src="/Images/Suroor-Scents.png" alt="Suroor-Scents Logo" />
         </div>
 
-        {/* Desktop Menu */}
-        <ul className="navlinks-container desktop">
+        {/* Menu */}
+        <ul className="navlinks-container">
           <li><a href="#" className="navlinks active">HOME</a></li>
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#">SHOP</a></li>
-          <li><a href="#">LOGIN</a></li>
+          <li><a href="#about" className="navlinks">ABOUT</a></li>
+          <li><a href="#" className="navlinks">SHOP</a></li>
         </ul>
-
-        {/* Right side */}
-        <div className="right">
-       
-          <button
-            className="hamburger"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'}`}></i>
-          </button>
-        </div>
       </nav>
-
-      {/* Mobile Drawer */}
-      <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
-        <ul>
-          <li><a href="#" onClick={() => setIsOpen(false)}>HOME</a></li>
-          <li><a href="#about" onClick={() => setIsOpen(false)}>ABOUT</a></li>
-          <li><a href="#" onClick={() => setIsOpen(false)}>SHOP</a></li>
-        </ul>
-      </div>
 
       <style jsx>{`
         .navbar {
@@ -49,74 +26,66 @@ const Navbar = ({ toggleMode, lightMode }) => {
           padding: 10px 20px;
           position: relative;
           z-index: 50;
+          color: white;
+          background: transparent;
         }
 
         .logo img {
           height: 50px;
         }
 
-        .navlinks-container.desktop {
+        .navlinks-container {
           display: flex;
-          gap: 20px;
+          gap: 25px;
           list-style: none;
         }
 
         .navlinks-container li a {
           text-decoration: none;
           font-weight: 500;
+          color: white;
+          position: relative;
+          transition: color 0.2s;
         }
 
-        .mode-toggle {
-          margin-right: 10px;
-          font-size: 18px;
-          cursor: pointer;
-          background: none;
-          border: none;
+        /* Hover/Active underline animation */
+        .navlinks-container li a::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: -3px;
+          left: 0;
+          background-color: #fbbf23; /* yellow underline */
+          transition: width 0.3s ease-in-out;
         }
 
-        .hamburger {
-          display: none;
-          font-size: 22px;
-          background: none;
-          border: none;
-          cursor: pointer;
+        .navlinks-container li a:hover::after,
+        .navlinks-container li a.active::after {
+          width: 100%;
         }
 
-        /* Mobile menu drawer */
-        .mobile-menu {
-          position: fixed;
-          top: 60;
-          right: -220px; /* hidden by default */
-          height: 90%;
-          width: 120px;
-          background: inherit; /* same theme */
-          box-shadow: -2px 0 5px rgba(0,0,0,0.3);
-          transition: right 0.3s ease-in-out;
-          display: flex;
-          align-items: center;
-        }
-        .mobile-menu.open {
-          right: 0; /* slides in */
-        }
-        .mobile-menu ul {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          padding-left: 20px;
-        }
-        .mobile-menu ul li a {
-          text-decoration: none;
-          font-weight: 800;
+        .navlinks-container li a:hover,
+        .navlinks-container li a.active {
+          color: #fbbf23;
         }
 
-        /* Hide desktop nav on mobile */
+        /* Mobile: horizontal, smaller, right-aligned, touch-friendly underline */
         @media (max-width: 768px) {
-          .navlinks-container.desktop {
-            display: none;
+          .navlinks-container {
+            gap: 15px;
+            font-size: 14px;
+            justify-content: flex-end;
           }
-          .hamburger {
-            display: block;
+
+          /* Make active underline visible on mobile */
+          .navlinks-container li a.active::after {
+            width: 100%;
+          }
+
+          /* Optional: underline on tap (simulated hover) */
+          .navlinks-container li a:active::after {
+            width: 100%;
           }
         }
       `}</style>
