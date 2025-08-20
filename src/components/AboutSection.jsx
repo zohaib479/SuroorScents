@@ -5,14 +5,17 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 const AboutSection = () => (
   <section
     id="about"
-    className="bg-gradient-to-b from-red-900 to-black text-white min-h-screen flex items-center justify-center px-6 sm:px-10 md:px-20 py-16"
+    className="bg-gradient-to-b from-red-900 via-black to-black text-white px-6 sm:px-10 md:px-20 py-16"
   >
-    <div className="max-w-4xl text-center">
-      <h2 className="text-4xl sm:text-5xl font-extrabold mb-6 font-playfair">About Us</h2>
+    <div className="max-w-4xl mx-auto text-center">
+      <h2 className="text-4xl sm:text-5xl font-extrabold mb-6 font-playfair">
+        About Us
+      </h2>
 
       <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
-        Toxic Scents is not just a brand — it's an experience. Our fragrances are crafted with precision and passion, blending confidence and allure in every spray. Made for the unforgettable.
+        Suroor Scents is not just a brand — it's an experience. Our fragrances are crafted with precision and passion, blending confidence and allure in every spray. Made for the unforgettable.
       </p>
+
       <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-10 sm:mb-12">
         Our story began with a dream to create scents that evoke emotions and leave a lasting impression. Today, we’re proud to be one of the leading perfume brands in the industry.
       </p>

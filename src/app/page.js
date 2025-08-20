@@ -297,9 +297,10 @@ export default function HomePage() {
       <ScrollBanner />
       
         <div className="circle"></div>
+        <div className="container">
           <Navbar toggleMode={toggleMode} lightMode={!isDark} />
           <HeroSection />
-  
+        </div>
       <main>
        <section className="section py-10">
   <div className="container mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 px-4">

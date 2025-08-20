@@ -773,6 +773,7 @@ body {
     /* About Section */
     .about-section {
       width: 100%;
+      height: auto;
       padding: 60px 20px;
       background-color: var(--bg-color);
       color: #831919;
