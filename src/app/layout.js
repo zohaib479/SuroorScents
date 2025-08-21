@@ -1,30 +1,47 @@
-"use client";
+
 
 import "./globals.css";
-import { motion, AnimatePresence } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { Inter } from "next/font/google";
+import AnimatedWrapper from "./AnimatedWrapper"; // client component
+
+const inter = Inter({ subsets: ["latin"] });
+export const metadata = {
+  title: "Suroor Scents - Premium Perfumes in Pakistan",
+  description: "Discover long-lasting premium fragrances for men, women, and unisex at Suroor Scents. Elegant, luxurious, and unforgettable perfumes crafted for every occasion.",
+  metadataBase: new URL("https://suroorscents.vercel.app"),
+  keywords: "perfume, suroor scents, luxury perfume, fragrances pakistan, oud, attar, long-lasting perfumes",
+  openGraph: {
+    title: "Suroor Scents - Premium Perfumes in Pakistan",
+    description: "Discover long-lasting premium fragrances for men, women, and unisex at Suroor Scents.",
+    url: "https://suroorscents.vercel.app",   
+    siteName: "Suroor Scents",
+    images: [
+      {
+        url: "/Images/png/white oud.png", 
+        width: 800,
+        height: 600,
+        alt: "Suroor Scents Perfume Collection",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
+export const dynamic = "force-dynamic"; 
+
+
 
 export default function RootLayout({ children }) {
-  const pathname = usePathname();
-
   return (
     <html lang="en">
-       <link
+      <head>
+        <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
-      <body>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={pathname}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-          >
-            {children}
-          </motion.div>
-        </AnimatePresence>
+      </head>
+      <body className={inter.className}>
+        <AnimatedWrapper>{children}</AnimatedWrapper>
       </body>
     </html>
   );

@@ -1,5 +1,4 @@
 "use client";
-
 import './globals.css';
 import React, { useEffect, useRef, useState } from 'react';
 import Navbar from '@/components/Navbar';
@@ -11,6 +10,9 @@ import Footer from '@/components/Footer';
 import ScrollBanner from '@/components/ScrollBanner';
 import AboutSection from '@/components/AboutSection';
 import Image from "next/image"; 
+
+
+
 const reviews = [
   {
     name: 'Sarah Khan',
