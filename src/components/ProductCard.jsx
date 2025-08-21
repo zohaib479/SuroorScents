@@ -31,7 +31,8 @@ const ProductCard = ({ title, description, price, originalPrice, image, hoverIma
   }, []);
 
   return (
-    <div ref={cardRef} className="card group cursor-pointer">
+    <div id='product-card'
+     ref={cardRef} className="card group cursor-pointer">
       {/* Image wrapper */}
       <div className="relative w-full h-80 overflow-hidden rounded-xl shadow-md">
         
