@@ -754,12 +754,10 @@ body {
 
     .feedback-section button {
       padding: 10px 20px;
-      background-color: #ff4d4d;
-      background-color: var(--bg-color);
       color: white;
       color: var(--text-color);
       border: none;
-      border-radius: 5px;
+      border-radius: 9px;
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.3s;
@@ -779,6 +777,11 @@ body {
       color: #831919;
 
       text-align: center;
+    }
+    #about{
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .about-section h2 {
