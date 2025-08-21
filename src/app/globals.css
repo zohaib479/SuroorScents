@@ -756,6 +756,7 @@ body {
       padding: 10px 20px;
       color: white;
       color: var(--text-color);
+      margin-top: 10px;
       border: none;
       border-radius: 9px;
       font-size: 1rem;
