@@ -26,13 +26,13 @@ const AboutSection = () => (
         <div className="flex flex-wrap justify-center gap-6">
           <a
             href="#"
-            className="bg-gray-800 p-4 sm:p-5 rounded-full hover:bg-yellow-500 transition-colors duration-300 flex items-center justify-center"
+            className="bg-gray-800 p-4 sm:p-5 rounded-full hover:bg-blue-500 transition-colors duration-300 flex items-center justify-center"
           >
             <FaFacebookF size={22} />
           </a>
           <a
             href="#"
-            className="bg-gray-800 p-4 sm:p-5 rounded-full hover:bg-pink-500 transition-colors duration-300 flex items-center justify-center"
+            className="bg-gray-800 p-4 sm:p-5 rounded-full hover:bg-pink-700 transition-colors duration-300 flex items-center justify-center"
           >
             <FaInstagram size={22} />
           </a>
