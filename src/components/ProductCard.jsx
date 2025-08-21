@@ -41,7 +41,7 @@ const ProductCard = ({ title, description, price, originalPrice, image, hoverIma
           alt={title}
           fill
           className={`object-contain transition-all duration-900 ease-in-out
-            ${showHover ? "opacity-0 scale-125" : "opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-110"}
+            ${showHover ? "opacity-0 " : "opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-110"}
           `}
         />
 
@@ -51,7 +51,7 @@ const ProductCard = ({ title, description, price, originalPrice, image, hoverIma
           alt={`${title} Hover`}
           fill
           className={`object-contain absolute inset-0 transition-all duration-700 ease-in-out
-            ${showHover ? "opacity-100 scale-110" : "opacity-0 scale-100 group-hover:opacity-100 group-hover:scale-110"}
+            ${showHover ? "opacity-100 " : "opacity-0 scale-100 group-hover:opacity-100 group-hover:scale-110"}
           `}
         />
       </div>
@@ -73,7 +73,7 @@ const ProductCard = ({ title, description, price, originalPrice, image, hoverIma
         }}
       >
         <button className="bg-yellow-500 text-white px-4 py-2 rounded mt-3 hover:bg-yellow-600 transition">
-          Add to Cart
+          Proceed to CheckOut
         </button>
       </Link>
     </div>

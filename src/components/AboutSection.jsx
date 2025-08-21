@@ -22,7 +22,7 @@ const AboutSection = () => (
 
       {/* Social Section */}
       <div>
-        <h3 className="text-2xl sm:text-3xl font-semibold mb-6">Follow Us On</h3>
+        <h3 className="text-2xl sm:text-3xl font-semibold  pt-20 mt-24">Follow Us On</h3>
         <div className="flex flex-wrap justify-center gap-6">
           <a
             href="#"
@@ -43,7 +43,7 @@ const AboutSection = () => (
             <FaTwitter size={22} />
           </a>
           <a
-            href="https://wa.me/923113141428"
+            href="https://wa.me/923228276549"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gray-800 p-4 sm:p-5 rounded-full hover:bg-green-500 transition-colors duration-300 flex items-center justify-center"
