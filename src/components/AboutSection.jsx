@@ -25,13 +25,13 @@ const AboutSection = () => (
         <h3 className="text-2xl sm:text-3xl font-semibold  pt-20 mt-24">Follow Us On</h3>
         <div className="flex flex-wrap justify-center gap-6">
           <a
-            href="#"
+            href="https://www.facebook.com/share/1AnnPfmMm6/"
             className="bg-gray-800 p-4 sm:p-5 rounded-full hover:bg-blue-500 transition-colors duration-300 flex items-center justify-center"
           >
             <FaFacebookF size={22} />
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/suroor.scents?igsh=NzcxeTJwYXR6amY2"
             className="bg-gray-800 p-4 sm:p-5 rounded-full hover:bg-pink-700 transition-colors duration-300 flex items-center justify-center"
           >
             <FaInstagram size={22} />
