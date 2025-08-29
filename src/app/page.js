@@ -210,7 +210,7 @@ const productm = [
     hoverImage: '/Images/azzaor-bg.png',
   },
      {
-    title: 'Suroor Spirit',
+    title: 'Suroor Sprit',
     description: 'Long-lasting fragrance with Floral notes.',
     price: 2099,
     originalPrice: 2999,
@@ -219,7 +219,7 @@ const productm = [
   },
    
  {
-    title: 'Velvet Eors',
+    title: 'Urban Edge',
     description: 'Long-lasting fragrance with Mint notes.',
     price: 2199,
     originalPrice: 2999,
@@ -231,7 +231,7 @@ const productm = [
 const productw = [
 
   {
-title: 'Lovely Oud',
+title: 'Pink Passion',
     description: 'Long-lasting fragrance with Oud notes.',
     price: 1499,
     originalPrice: 2199,
@@ -240,7 +240,7 @@ title: 'Lovely Oud',
   },
 
   {
-    title: 'Gucci Bloom',
+    title: 'Peony Dreams',
     description: 'A floral fragrance with a blend of jasmine and tuberose.',
     price: 1699,
     originalPrice: 2499,
@@ -252,7 +252,7 @@ title: 'Lovely Oud',
 ];
 const productsU = [
   {
-    title: 'Oud-e-Hayaan',
+    title: 'Midnight Edge',
     description: 'Long-lasting fragrance with Oudi notes.',
     price: 1799,
     originalPrice: 2599,
@@ -260,7 +260,7 @@ const productsU = [
     hoverImage: '/Images/savage-bg.png',
   },
   {
-    title: 'Unwanted Code',
+    title: 'Velvet Eros',
     description: 'Long-lasting fragrance with Bright & Fruity notes.',
     price: 1599,
     originalPrice: 2299,
