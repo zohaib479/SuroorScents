@@ -41,7 +41,7 @@ await transporter.sendMail({
   html: `
   <div style="font-family: Arial, sans-serif; background-color: #fff5f5; padding: 20px; border-radius: 10px; border: 1px solid #f5c2c7;">
     <div style="text-align: center;">
-      <img src="/Images/png/Suroor-Scents.png" alt="Suroor Scents Logo" style="width: 150px; margin-bottom: 15px;">
+      <img src="https://suroorscents.vercel.app/Images/Suroor-Scents.png" alt="Suroor Scents Logo" style="width: 150px; margin-bottom: 15px;">
       <h1 style="color: #c1121f; margin-bottom: 5px;">Suroor Scents</h1>
       <h3 style="color: #6a040f; font-weight: normal;">Luxury Fragrance Collection</h3>
     </div>
