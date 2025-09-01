@@ -317,7 +317,6 @@ export default function HomePage() {
         className="rounded-xl object-contain shadow-md"
       />
     </div>
-
    {/* Content Section */}
 <div className="content flex-1 text-center md:text-left space-y-3 md:space-y-4 md:-mt-10">
   <h2 className="Demand text-2xl md:text-3xl font-extrabold text-gray-800">

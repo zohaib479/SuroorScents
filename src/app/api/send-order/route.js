@@ -1,17 +1,20 @@
 import nodemailer from "nodemailer";
-
+import { PrismaClient } from "@/generated/prisma";
+const prisma = new PrismaClient();
 export async function POST(req) {
   try {
     const { name, email, address, phone, perfumeName, price } = await req.json();
 
     // Create transporter
     const transporter = nodemailer.createTransport({
-      service: "gmail", // you can also use SMTP
+      service: "gmail", 
       auth: {
         user: process.env.EMAIL_USER, // your email
         pass: process.env.EMAIL_PASS, // your app password
       },
     });
+
+
 
     // Email to Admin
     await transporter.sendMail({
@@ -65,7 +68,18 @@ await transporter.sendMail({
   </div>
   `,
 });
-
+    // Save order to database
+    const order = await prisma.order.create({
+      data:{
+        name,
+        email,
+        address,
+        phone,
+        product: perfumeName,
+        quantity: 1,
+        price: parseFloat(price.replace(/[^0-9.-]+/g,""))
+      }
+    })
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });
 
